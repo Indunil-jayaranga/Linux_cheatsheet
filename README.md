@@ -483,7 +483,7 @@ include "/etc/named.root.key";
   nslookup
   ```
 
-# Network Time Protocol (ntp)
+## Network Time Protocol (ntp)
 
 - Configuration file = /etc/chronyd.conf
 - Log file = /var/log/chrony
@@ -508,7 +508,7 @@ include "/etc/named.root.key";
 
 - Everytime you edite the configeration file you have to restart the service.
 
-# System Utility Command - timedatectl
+## System Utility Command - timedatectl
 
 - List of all thime zones
   ```bash
@@ -531,7 +531,7 @@ include "/etc/named.root.key";
     timedatectl set-ntp true
   ```
 
-# MailServer - Sendmail
+## MailServer - Sendmail
 - This server use for send and receive emails.
 - Files
   - /etc/mail/sendmail.mc
@@ -556,11 +556,11 @@ include "/etc/named.root.key";
       mail -s [subject] receivers_mail_address
     ```
 
-# WEB Server (Apache-HTTPs) 
+## WEB Server (Apache-HTTPs) 
 
 
 
-# Centaral loger (rsyslog)
+## Centaral loger (rsyslog)
 
 - This server is use for generate or collect logs from other servers
 - package name is **rsyslog**
@@ -584,15 +584,14 @@ include "/etc/named.root.key";
     systemctl start rsyslog
   ```
 
-# Tracing Network Traffic (tracerout)
+## Tracing Network Traffic (tracerout)
 
 - Traceroute is the route tracing tool used on Unix-like Operating Systems.
 ```bash
   tracerout [www.google.com]
-```
-# 
+``` 
 
-# Cockpit
+## Cockpit
 - Cockpit is a web based linux administration tool.
 
 - Installation
