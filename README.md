@@ -591,3 +591,21 @@ include "/etc/named.root.key";
   tracerout [www.google.com]
 ```
 # 
+
+# Cockpit
+- Cockpit is a web based linux administration tool.
+
+- Installation
+1. yum install cockpit -y
+
+2. Start the service
+  ```bash
+    systemctl start/enable cockpit
+  ```
+- Next connect your server through cockpit
+
+  - Open your browser and serch
+  
+      **https://[$your_server_ip]:9090**
+  
+  - Now you can login to your user.
