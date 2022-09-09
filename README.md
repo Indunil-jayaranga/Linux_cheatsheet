@@ -613,3 +613,95 @@ include "/etc/named.root.key";
       **https://[$your_server_ip]:9090**
   
   - Now you can login to your user.
+
+## Firewall (iptable)
+
+- Install the package
+```bash
+  yum install iptables-services
+```
+- start/enable the service
+```bash
+  systemctl start/enable iptables
+```
+
+- You can viewe all firewall rules using this command
+```bash
+  iptables -L
+```
+
+- You can delete all firewall rules using this command
+```bash
+  iptables -F
+```
+
+## Tune System perfornance
+
+- commads --> tuned, nice and renice 
+
+- tuned
+  - start the tuned service.
+    ```bash
+      systemctl enable|start tuned
+    ```
+  - Command to change settings for tuned daemon.
+    ```bash
+      tuned-adm
+    ```
+  - To check which profile is active.
+    ```bash
+      tuned-adm active
+    ```
+  - To list available profile.
+    ```bash
+      tuned-adm list
+    ```
+  - To change to desired profile
+    ```bash
+      tuned-adm profile [profile-name]
+    ```
+  - Check for tuned recommendation
+    ```bash
+      tuned-adm recommend
+    ```
+  - Turn off tuned setting daemon 
+    ```bash
+      tuned-adm off
+    ```
+
+- nice
+
+We can change process levels using **nice** 
+
+Nice value is a user-space and priority PR is the process's actual priority that use by Linux kernel.
+Linux system priorities are 0 to 139 in which 0 to 99 for real time and 100 to 139 for users.
+
+  - Viewe process priority
+    ```bash
+      ps axo pid,comm,nice,cls --sort=nice
+    ```
+  - To set the process priority
+    ```bash
+      nice -n [number] [process-name]
+    ```
+  -  To change the process priority
+    ```bash
+      renice -n [number] [PID]
+
+## DHCP server
+
+- DHCP stands for Dynamic Host Configuration Protocol.
+- A DHCP Server is a network server that automatically provides and assigns IP addresses, default gateways and other network parameters to client devices. It relies on the standard protocol known as Dynamic Host Configuration Protocol or DHCP to respond to broadcast queries by clients.
+
+- Install the package
+  ```bash
+    yum install dhcp-server
+  ```
+- Edit the configeration file
+ ```bash
+  vi /etc/dhcp/dhcp.conf
+  ```
+ - Run the service
+  ```bash
+    systemctl start|enable dhcp
+   ```
