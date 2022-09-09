@@ -1,5 +1,7 @@
 # Linux_cheatsheet
 
+[network services and commands](https://github.com/Indunil-jayaranga/Linux_cheatsheet#network-files-and-commands)
+
 # Networking,Services and system updates
 
 ## Network files and commands
