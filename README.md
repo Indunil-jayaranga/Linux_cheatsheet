@@ -1,5 +1,5 @@
 # Linux_cheatsheet
-**- [Network services and system updates](https://github.com/Indunil-jayaranga/Linux_cheatsheet#networkingservices-and-system-updates)**
+- **[Network services and system updates](https://github.com/Indunil-jayaranga/Linux_cheatsheet#networkingservices-and-system-updates)**
 - [Network services and commands](https://github.com/Indunil-jayaranga/Linux_cheatsheet#network-files-and-commands)
 - [NIC information](https://github.com/Indunil-jayaranga/Linux_cheatsheet#nic-information)
 - [NIC Bonding](https://github.com/Indunil-jayaranga/Linux_cheatsheet#nic-bonding)
