@@ -720,6 +720,97 @@ Linux system priorities are 0 to 139 in which 0 to 99 for real time and 100 to 1
   vi /etc/dhcp/dhcp.conf
   ```
  - Run the service
-  ```bash
+   ```bash
     systemctl start|enable dhcp
    ```
+# **Linux Disk management and run levels**
+
+## Customize massage of the day
+
+- Create a new file in **/etc/profile.d/motd.sh
+  ```bash
+  vi /etc/profile.d/motd.sh
+  ```
+- Add desired commands in motd.sh in file
+  eg:
+  ```bash
+  #!/bin/bash
+  echo -e "
+  ########################################
+  #
+  # Welcome to `hostname`
+  # This system is running `cat /etc/redhat-release`
+  # You are logged in as `whoami`
+  #
+  ########################################
+  ```
+- Modify the /etc/ssh/sshd_config file to edit
+  - #Printmotd yes to Printmotd no
+- Restart sshd service
+  ```bash
+  systemctl restart sshd.service
+  ```
+
+## Disk partition commands
+
+- You can find information about disc using these commands
+  - df
+  - fdisk
+
+- Add Disk and Create Standart partition
+
+## Network File System (NFS)
+
+- Steps for NFS Server Condiguration
+
+  - Install NFS packages
+    ```bash
+    yum install nfs-utils libnfsidmap
+    ```
+  - Once the packages are installed, enable and start NFS services
+    ```bash
+    systemctl enable rpcbind
+    systemctl enable nfs-server
+    systemctl start rpcbind, nfs-server, rpc-statd, nfs-idmapd
+    ```
+  - Create NFS share directory and assign permissions.
+    ```bash
+    mkdir /directory_name
+    chmod a+rwx /directory_name
+    ```
+  - Modidy /etc/exports file to add new shared filesystem
+    ```bash
+    directory_name $ip(rw,sync,no_root_sqash) = for only 1 host
+    directory_name *(rw,sync,no_root_sqash) = for everyone
+    ```
+  
+- NFS client configuration
+  - Install NFS packages
+    ```bash
+    yum install nfs-utils rpcbind
+    ```
+  - Once the packages are insralled enable and start rpcbind service
+    ```bash
+    service rpcbind start
+    ```
+  - Make sure firewalld or iptables stopped
+  - Show mount from the NFS server
+    ```bash
+    showmount -e $NFS_server_IP
+    ```
+  - Create mount point
+    ```bash
+    mkdir /mnt/app
+    ```
+  - Mount the NFS fileSystem
+    ```bash
+    mount $NFS_server_IP:/directory_name /mnt/kramer
+    ```
+  - Verify Mounted filesystem
+    ```bash
+    df -h
+    ```
+  - To unmount
+    ```bash
+    unmount /mnt/kramer
+    ```
